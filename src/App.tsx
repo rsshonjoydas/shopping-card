@@ -1,7 +1,9 @@
 // ? internal imports
 // ? Components imports
-import { LinearProgress } from "@material-ui/core";
+import { Grid, LinearProgress } from "@material-ui/core";
 import { useQuery } from "react-query";
+import { Wrapper } from "./App.styles";
+import Item from "./Item/Item";
 
 export type CartItemType = {
   id: number;
@@ -25,7 +27,7 @@ const App = () => {
 
   const getTotalItems = () => null;
 
-  const handleAddToCart = () => null;
+  const handleAddToCart = (clickedItem: CartItemType) => null;
 
   const handleRemoveFromCart = () => null;
 
@@ -37,9 +39,15 @@ const App = () => {
     return <div>Something went wrong...</div>;
   }
   return (
-    <>
-      <h1>Shopping Cart</h1>
-    </>
+    <Wrapper>
+      <Grid container spacing={3}>
+        {data?.map((item) => (
+          <Grid item key={item.id} xs={12} sm={4}>
+            <Item item={item} handleAddToCart={handleAddToCart} />
+          </Grid>
+        ))}
+      </Grid>
+    </Wrapper>
   );
 };
 
