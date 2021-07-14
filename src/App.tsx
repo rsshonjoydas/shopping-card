@@ -1,5 +1,6 @@
 // ? internal imports
 // ? Components imports
+import { LinearProgress } from "@material-ui/core";
 import { useQuery } from "react-query";
 
 export type CartItemType = {
@@ -22,6 +23,19 @@ const App = () => {
   );
   console.log(data);
 
+  const getTotalItems = () => null;
+
+  const handleAddToCart = () => null;
+
+  const handleRemoveFromCart = () => null;
+
+  if (isLoading) {
+    return <LinearProgress />;
+  }
+
+  if (error) {
+    return <div>Something went wrong...</div>;
+  }
   return (
     <>
       <h1>Shopping Cart</h1>
